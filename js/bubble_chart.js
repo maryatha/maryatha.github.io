@@ -385,6 +385,9 @@ function bubbleChart() {
                   '</span><br/>' +
                   '<span class="name">Rating Score: </span><span class="value">' +
                   d.Rating +
+                  '<span class="name">Description: </span><span class="value">' +
+                  d.Category +
+                  '</span><br/>'
                   '</span>';
 
     tooltip.showTooltip(content, d3.event);
