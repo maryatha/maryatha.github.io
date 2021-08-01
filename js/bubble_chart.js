@@ -374,7 +374,7 @@ function bubbleChart() {
     var content = '<span class="name">Application Name: </span><span class="value">' +
         d.App +
         '</span><br/>' +
-        '<span class="name">Application Category: </span><span class="value">' +
+        '<span class="name">ddtestApplication Category: </span><span class="value">' +
                   d.Category +
                   '</span><br/>' +
                   '<span class="name">Content Rating: </span><span class="value">' +
