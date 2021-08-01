@@ -25,7 +25,7 @@ function bubbleChart() {
 
   var stateCenters = {
     Thematic: { x: width / 3, y: 2* height / 3 },
-    Strategy: { x: 3 * width / 8, y: height / 3 },
+    Strategy: { x: 3 * width / 5, y: height / 3 },
     Abstract: { x: width / 2, y: 2* height / 3 },
     Party: { x: 5 * width / 8, y: height / 3 },
     Uncategorized: { x: 2 * width / 3, y: 2* height / 3 },
