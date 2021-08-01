@@ -1,2 +1,0 @@
-# maryatha.github.io
-DataViz
