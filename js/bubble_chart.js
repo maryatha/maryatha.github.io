@@ -24,12 +24,14 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var stateCenters = {
-    Strategy: { x:3.4 * width / 16, y: height / 2.5 },
-    Family: { x: width / 3, y: 2.1 * height / 3.6 },
-    Thematic: { x: 3 * width / 8, y: height / 2.5 },
-    Party: { x: width / 2, y: 2* height / 3.3 },
-    Uncategorized: { x: 5 * width / 9, y: height / 3 },
-    Unrated: { x: 2.2 * width / 3, y: 2* height / 3.3 }
+    Strategy: { x: 3 * width / 16, y: height / 3 },
+    IL: { x: width / 3, y: 2* height / 3 },
+    Thematic: { x: 3 * width / 8, y: height / 3 },
+    NV: { x: width / 2, y: 2* height / 3 },
+    Party: { x: 5 * width / 8, y: height / 3 },
+    Uncategorized: { x: 2 * width / 3, y: 2* height / 3 },
+    Family: { x: 13 * width / 16, y: height / 3 }
+    
   }
 
   var starCenters = {
