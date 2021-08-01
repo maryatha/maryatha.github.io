@@ -48,7 +48,6 @@
 #about {
 	background-image: url(../imgs/essay.jpg);
 	padding: 3% 6% 6% 6%;
-  opacity: .33;
 }
 #background_bw {
 	background-image: url(../imgs/darkwood.jpg);
@@ -59,7 +58,6 @@
 #line_chart {
     background-image: url(../imgs/lightcolor.jpg);
     padding: 3% 0 0 0;
-    opacity: .33;
 }
 
 /* Data Source
@@ -69,7 +67,6 @@
     padding-top: 20%;
     padding-right: 20%;
     padding-left: 10%;
-    opacity: .33;
 }
 #dataset h1 {
     font-size: 5em;
