@@ -21,7 +21,7 @@ function bubbleChart() {
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
-  var center = { x: width / 2, y: height / 2 };
+  var center = { x: width , y: height };
 
   var stateCenters = {
     /*Strategy: { x: 3 * width / 16, y: height / 3 },
