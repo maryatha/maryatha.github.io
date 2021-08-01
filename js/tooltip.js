@@ -4,7 +4,7 @@
  * Most styling is expected to come from CSS
  * so check out bubble_chart.css for more details.
  */
-function floatingTooltip(tooltipId, width, height) {
+function floatingTooltip(tooltipId, width) {
   // Local variable to hold tooltip div for
   // manipulation in other functions.
   var tt = d3.select('body')
@@ -16,7 +16,6 @@ function floatingTooltip(tooltipId, width, height) {
   // Set a width if it is provided.
   if (width) {
     tt.style('width', width);
-    tt.style('height', height)
   }
 
   // Initially it is hidden.
@@ -48,13 +47,34 @@ function floatingTooltip(tooltipId, width, height) {
    * based on d3 mouse event.
    */
   function updatePosition(event) {
+    var xOffset = 20;
+    var yOffset = 10;
+
+    var ttw = tt.style('width');
+    var tth = tt.style('height');
 
     var wscrY = window.scrollY;
     var wscrX = window.scrollX;
 
+    var curX = (document.all) ? event.clientX + wscrX : event.pageX;
+    var curY = (document.all) ? event.clientY + wscrY : event.pageY;
+    var ttleft = ((curX - wscrX + xOffset * 2 + ttw) > window.innerWidth) ?
+                 curX - ttw - xOffset * 2 : curX + xOffset;
+
+    if (ttleft < wscrX + xOffset) {
+      ttleft = wscrX + xOffset;
+    }
+
+    var tttop = ((curY - wscrY + yOffset * 2 + tth) > window.innerHeight) ?
+                curY - tth - yOffset * 2 : curY + yOffset;
+
+    if (tttop < wscrY + yOffset) {
+      tttop = curY + yOffset;
+    }
+
     tt
-      .style('top', (event.clientY + wscrY) + 'px')
-      .style('left', (event.clientX + wscrX) + 'px');
+      .style('top', tttop + 'px')
+      .style('left', ttleft + 'px');
   }
 
   return {

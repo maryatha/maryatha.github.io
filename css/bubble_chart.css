@@ -8,28 +8,26 @@
 }
 
 .button {
-  min-width: 150px;
+  min-width: 130px;
   margin: 3px;
-  padding: 20px;
+  padding: 10px;
   cursor: pointer;
+  text-align: center;
   font-size: 13px;
-    font-weight: bold;
+  font-style: bold;
   color: #fff;
   text-decoration: none;
   background: #000;
-  border-radius: 50%;
-    left: 50%;
-    justify-content: center;
 }
 
 .button.active {
-  background: aliceblue;
+  background: green;
 }
 
 
 #vis {
-  width: 1500px;
-  height: 1024px;
+  width: 1024px;
+  height: 768px;
   clear: both;
   /* margin-bottom: 10px; */
   margin: auto;
@@ -37,16 +35,11 @@
 
 #toolbar {
   margin-top: 10px;
-    justify-content: center;
-    position: center;
-    left : 40%;
-    transform: translate(30%, 30%);
 }
 
-.Content_Rating {
-  font-size: 22px;
-  fill: aliceblue;
-    font-weight:bold;
+.state, .stars {
+  font-size: 21px;
+  fill: #aaa;
   cursor: default;
 }
 
