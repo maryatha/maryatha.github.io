@@ -28,7 +28,7 @@ function bubbleChart() {
     Family: { x: width / 3, y: 2.1 * height / 3.6 },
     Thematic: { x: 3 * width / 8, y: height / 2.5 },
     Party: { x: width / 2, y: 2* height / 3.3 },
-    Eighteen_Plus: { x: 5 * width / 9, y: height / 3 },
+    Uncategorized: { x: 5 * width / 9, y: height / 3 },
     Unrated: { x: 2.2 * width / 3, y: 2* height / 3.3 }
   }
 
