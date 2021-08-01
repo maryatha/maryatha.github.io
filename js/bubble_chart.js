@@ -147,6 +147,7 @@ function bubbleChart() {
         Size: +d.Size,
         Rating: +d.Rating,
         App: d.App,
+        Boardgame: d.Boardgame,
         Content_Rating: d.Content_Rating,
         Category: d.Category,
         x: Math.random() * 900,
