@@ -386,8 +386,9 @@ function bubbleChart() {
                   '<span class="name">Number of Reviews: </span><span class="value">' +
                   addCommas(d.Reviews) +
                   '</span><br/>' +
-                  '<span class="name">Rating Score: </span><span class="value">' +
+                  '<span class="name">Rating: </span><span class="value">' +
                   d.Rating +
+                  '</span><br/>' +
                   '<span class="name">Description: </span><span class="value">' + '</span><br/>' +
                   d.Description +
                   '</span><br/>'
