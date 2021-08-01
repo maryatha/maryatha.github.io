@@ -374,7 +374,9 @@ function bubbleChart() {
     var content = '<span class="name">Boardgame: </span><span class="value">' +
         d.App +
         '</span><br/>' +
-       
+        '<span class="name">Description: </span><span class="value">' +
+                  d.Category +
+                  '</span><br/>' +
                   '<span class="name">Category: </span><span class="value">' +
                   d.Content_Rating +
                   '</span><br/>' +
@@ -383,7 +385,7 @@ function bubbleChart() {
                   '</span><br/>' +
                   '<span class="name">Rating Score: </span><span class="value">' +
                   d.Rating +
-                  '<span class="name">Description: </span><span class="value">' +  '</span><br/>' +
+                  '<span class="name">Description: </span><span class="value">' +
                   d.Category +
                   '</span><br/>'
                   '</span>';
