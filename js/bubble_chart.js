@@ -389,7 +389,7 @@ function bubbleChart() {
                   '<span class="name">Rating: </span><span class="value">' +
                   d.Rating +
                   '</span><br/>' +
-                  '<span class="name">Description: </span><span class="value">' + '</span><br/>' +
+                  '<span class="name">Description: </span><span class="value">' +
                   d.Description +
                   '</span><br/>'
                   '</span>';
