@@ -52,7 +52,6 @@
 #background_bw {
 	background-image: url(../imgs/darkwood.jpg);
 	padding: 3% 0 0 0;
-  opacity: .33;
 }
 
 #line_chart {
