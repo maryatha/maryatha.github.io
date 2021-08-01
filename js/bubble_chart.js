@@ -374,7 +374,7 @@ function bubbleChart() {
     console.log(d);
 
     var content = '<span class="name">Boardgame: </span><span class="value">' +
-        d.App +
+        d.Boardgame +
         '</span><br/>' +
         '<span class="name">Description: </span><span class="value">' +
                   d.Category +
