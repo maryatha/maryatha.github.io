@@ -24,8 +24,8 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var stateCenters = {
-    Teen: { x:3.4 * width / 16, y: height / 2.5 },
-    Everyone: { x: width / 3, y: 2.1 * height / 3.6 },
+    Strategy: { x:3.4 * width / 16, y: height / 2.5 },
+    Family: { x: width / 3, y: 2.1 * height / 3.6 },
     Ten_Plus: { x: 3 * width / 8, y: height / 2.5 },
     Mature: { x: width / 2, y: 2* height / 3.3 },
     Eighteen_Plus: { x: 5 * width / 9, y: height / 3 },
