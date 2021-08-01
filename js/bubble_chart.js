@@ -144,10 +144,10 @@ function bubbleChart() {
         id: d.id,
         radius: radiusScale(+d.Reviews),
         Reviews: +d.Reviews,
-        Size: +d.Size,
+        Year: d.Year,
         Rating: +d.Rating,
-        App: d.App,
         Boardgame: d.Boardgame,
+        Description: d.Description,
         Content_Rating: d.Content_Rating,
         Category: d.Category,
         x: Math.random() * 900,
@@ -377,8 +377,8 @@ function bubbleChart() {
     var content = '<span class="name">Boardgame: </span><span class="value">' +
         d.Boardgame +
         '</span><br/>' +
-        '<span class="name">Description: </span><span class="value">' +
-                  d.Category +
+        '<span class="name">Year: </span><span class="value">' +
+                  d.Year +
                   '</span><br/>' +
                   '<span class="name">Category: </span><span class="value">' +
                   d.Content_Rating +
