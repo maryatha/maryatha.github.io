@@ -6,7 +6,7 @@
  * https://github.com/vlandham/bubble_chart_v4/
  */
 // Load the data.
-d3.csv('data/googlestore.csv', display);
+d3.csv('data/boardgames.csv', display);
 
 // setup the buttons.
 setupButtons();
