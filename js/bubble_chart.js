@@ -35,9 +35,9 @@ function bubbleChart() {
     */
     Family: { x: width / 5, y:  1.2 * height / 3},
     Thematic: { x: 14 * width / 40, y: 6.5 * height / 20 },
-    Abstract: {  x: width / 4, y: 1.8* height / 3 },
+    Abstract: {  x: width / 3, y: 1.5* height / 2.5 },
     Party: { x: 6 * width / 8, y: 1.8* height / 3 },
-    Uncategorized: { x: 11 * width / 20, y: height / 16 },
+    Uncategorized: { x: 11 * width / 2, y: height / 2 },
     Strategy: { x: 13 * width / 16, y: height / 3 }
 
     
