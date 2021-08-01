@@ -376,7 +376,7 @@ function bubbleChart() {
         '</span><br/>' +
         
         
-                  d.Content_Rating +
+                  +
                   '</span><br/>' +
                   '<span class="name">Number of Reviews: </span><span class="value">' +
                   addCommas(d.Reviews) +
@@ -384,12 +384,11 @@ function bubbleChart() {
                   '<span class="name">Rating Score: </span><span class="value">' +
                   d.Rating +
                   '<span class="name">Description: </span><span class="value">' + '</span><br/>' +
-                  d.Category +
-                  '</span><br/>' +
-                  '<span class="name">Description: </span><span class="value">' +
+                  
                   d.Category +
                   '</span><br/>' +
                   '<span class="name">Category: </span><span class="value">' +
+                  d.Content_Rating
                   '</span>';
 
     tooltip.showTooltip(content, d3.event);
