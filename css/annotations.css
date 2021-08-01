@@ -6,11 +6,6 @@
   --annotation-color: #E8336D;
 }
 
-/* #annotation_svg {
-    background-color: white;
-    font-family: 'Lato';
-  } */
-
 .annotation path {
   stroke: var(--annotation-color);
   fill: none;
