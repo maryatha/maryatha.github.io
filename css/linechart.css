@@ -2,7 +2,7 @@
   font: 10px sans-serif;
 } */
 .axis path,
-.axis line, 
+.axis line,
 .axis1 path,
 .axis1 line {
   fill: none;
@@ -17,13 +17,19 @@
   stroke-width: 1.5px;
 }
 .legend-box {
-  cursor: pointer;  
+  cursor: pointer;
 }
 #mouse-tracker {
   stroke: #E6E7E8;
   stroke-width: 1px;
 }
-.hover-line { 
+#chart {
+  width: 650px;
+  height: 400px;
+  vertical-align: center;
+  margin-top: 400px;
+}
+.hover-line {
   stroke: #E6E7E8;
   fill: none;
   stroke-width: 1px;
@@ -38,7 +44,29 @@
   fill: #000000;
 }
 .tooltip {
-  font-weight: normal;
+  position: absolute;
+  text-align: left;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: black;
+  border-radius: 0px;
+  pointer-events: none;
+  color: white;
+}
+
+div.tooltip_line {
+  position: absolute;
+  text-align: left;
+  width: auto;
+  height: auto;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: black;
+  border-radius: 0px;
+  pointer-events: none;
+  color: white;
 }
 .brush .extent {
   stroke: #FFF;

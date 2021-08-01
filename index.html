@@ -3,47 +3,38 @@
 
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>CS498 DDV Final D3.js Visualization - Stanley Lee</title>
-	<meta name="author" content="Stanley Lee" />
+	<title>D3.js Visualization</title>
 	<meta name="description" content="fullPage full-screen backgrounds." />
 	<meta name="keywords"  content="fullpage,jquery,demo,screen,fullscreen,backgrounds,full-screen" />
 	<meta name="Resource-type" content="Document" />
 
 	<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css" />
-	<link rel="stylesheet" type="text/css" href="css/slides.css" />
+	<link rel="stylesheet" type="text/css" href="css/display_style.css" />
 	<link rel="stylesheet" type="text/css" href="css/bubble_chart.css" />
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
-	<link rel="stylesheet" type="text/css" href="css/zoomable_sunburst.css" />
 	<link rel="stylesheet" type="text/css" href="css/linechart.css" />
 	<link rel="stylesheet" type="text/css" href="css/annotations.css" />
 
 	<link href='https://fonts.googleapis.com/css?family=Lato:300,900' rel='stylesheet' type='text/css'>
 
-	<!--[if IE]>
-		<script type="text/javascript">
-			 var console = { log: function() {} };
-		</script>
-	<![endif]-->
-
 	<!-- import d3.v3 -->
-	<script type="text/javascript" src="js/d3.v3.js"></script>
+	<script type="text/javascript" src="import/d3.min.js"></script>
+	<script type="text/javascript" src="import/d3.v3.js"></script>
+	<script type="text/javascript" src="import/d3-annotation.min.js"></script>
 
 	<!-- import fullPage -->
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.fullPage.js"></script>
+    <script type="text/javascript" src="import/jquery.min.js"></script>
+	<script type="text/javascript" src="import/jquery.fullPage.js"></script>
 
-	<!-- import d3.v4 -->
-	<script type="text/javascript" src="js/d3.min.js"></script>
-	<script type="text/javascript" src="js/d3-annotation.min.js"></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				verticalCentered: false,
-				anchors: ['intro', 'datavis', 'yelpdata', 'reviews', 'top25', 'checkins', 'findings', 'ref'],
+				anchors: ['intro', 'structure', 'dataset', 'bubble', 'bar',  'findings', 'ref'],
 				navigation: true,
 				navigationPosition: 'right',
-				navigationTooltips: ['Introduction', '​About the Visualization', 'Yelp Dataset', 'Reviews Overview', 'Top 25 Categories', 'NV Checkins', 
-					'Findings', 'References']
+				navigationTooltips: ['Introduction', 'Purpose', 'Data Source', 'High-Level Overview', 'Stacked Bar Chart',
+					'Results', 'Ref']
 			});});
 	</script>
 
@@ -52,110 +43,94 @@
 <div id="fullpage">
 	<div class="section" id="title">
 		<div id="title_text">
-			<h1>Diving into the Restaunt Business</h1>
-			<h3>a d3.js data visualization project using the Yelp Academic dataset<br />Stanley Lee - UIUC CS498 Data Visualization</h3>
+			<h1>Board Game Analysis</h1>
+			<h3>Data Visualization utilizes d3.js to display graphs and charts<br /><br />Mary Athappilly </h3>
 		</div>
 	</div>
 	<div class="section" id="about">
 		<div id="content_div">
-			<h1>About the Visualization</h1>
-			<p>This visualization is an interactive slideshow which takes the user through the Dataset of the 9th Round of the Yelp Academic 
-				Dataset Challenge. The dataset itself contains the Yelp reviews and aggregated check-ins over time of 144 thousand businesses 
-				located throughout various metropolitans across the globe. This visualization focuses on the data from the United States which 
-				includes the following cities: Pittsburgh, Charlotte, Urbana-Champaign, Phoenix, Las Vegas, Madison, Cleveland.</p>
-			<h2>Recommended Settings</h2>
-			<p>As the visualizations use a preset static canvas of 1024x768 pixels, the viewing size of the interactive visualization is at 
-				least 1280x800 pixels to accommodate the surrounding text and scene elements.</p>
+			<h1>Visualization Principles</h1>
+			<p>This visualization uses martini glass structure which takes the user through the Dataset of the Google Review Analysis in the year of 2019
+                . The dataset itself aggregates user rating for more than 10,000 Applications from the Google Play Store. However, due to
+                the consideration of loading time, this analysis filter the data to the size of 2,000. This visualization focuses on the Content Rating
+                applied to different age groups. Inp articular, they are 18+, 15+, 7+(mature) and everyone(all-age).</p>
+			<h2>Interactive Slideshow structure</h2>
+			<p> The pattern will investigate some tangent that you might be interested in, in our case, they will be the relayionship between
+                content rating and rate score as well as content rating verses installation numbers. Users have the freedom to
+                choose just to continue on if you're not interested in the details of that slide.</p>
 			<h2>Managing the Dataset</h2>
 			<p>With such a large dataset, creating a visualization with the raw data turned out to be very difficult. The first step for created 
 				this visualization was to process the dataset and focus on the data pertaining restaurants in the United States only.</p>
-			<h2>Templates Scene</h2>
-			<p>The use of CSS and FullPage.js allows for a cohesive template look for the interactive visualization. Each page is transitioned 
-				using the same method and text elements are kept the same (font size and family). Additionally there is a page navigation bar 
-				on the right side which allows users to skip between different slides. The tooltips which are triggered when a user moves their 
-				mouse over the navigation alters the display parameters for each navigation menu item.</p>
+			<h2>Templates Structure</h2>
+			<p> To facilitate a cohesive and smooth look for the interactive visualization, the transition is implemented to capture users' scroll activities
+                . Additionally there is a page navigation bar to help user navigate between different pages. With mose hover on the navigation dots,
+				the user can see the title of all pages alter alters the display sequence.
+				This helps user better understanding the thinking pattern from the author.</p>
 			<h2>Annotations</h2>
-			<p>Annotations have been used in all three visualizations with a similar process of using triggers to change the hidden paramenter of 
-				the annotation. For example, the Line Chart Visualization has an initial state of the hidden parameter which controls the display 
-				of the annotations set to false. As a user uses the brush bar to trigger changes to the line chart visualization x-axis 
-				parameters, it also changes this hidden parameter to true. In turn the annotations disappear until the user resets the brush bar 
-				to zero - thus zooming out back to the default visualization parameters.</p>
+			<p>Annotations have been used in all visualizations with a generic css pattern to annotate key findings. For example, user might get lost
+				when looking through the overview bubble chart becuase the size of data is overwhelming. Then in between of each user activities, such like
+				clicking buttons, the annotation which the author wants to convey will pop up on the screen to remind the user what the problem is.
+				Certainly, the annotation will disappear when user is performing the next activity.</p>
 			<h2>Parameters and Triggers</h2>
-			<p>Both parameters and triggers are used in all of the three visualizations. For the Bubble Chart Visualization, parameters for the 
+			<p>Both parameters and triggers are used in all visualizations. For the Bubble Chart Visualization, parameters for the
 				x,y co-ordinates of each bubble are set to an initial central position for the All Reviews Visualization. As a user selects menu 
 				items to chose between All Reviews, Reviews by State and Reviews by Stars, it triggers the change of bubble’s x,y co-ordinates 
 				parameter to their respective groupings.</p><br />
-			<p>In Zoomable Sunburst Visualization, each mouse click on a region is a trigger for the path and arc parameters. By clicking within 
-				a region, you can zoom into the data to take a look at the information underneath. Clicking the centre circle will trigger the 
-				parameters to return to its values one up in the hierarchy.</p><br />
-			<p>For Line Chart Visualization, parameters are set for each Restaurant Category. These parameters are triggered to be updated as the 
-				mouse moves over the visualization, providing the user with a snapshot of the amount of check-ins in a given time. A secondary 
-				parameter and trigger set is the brush bar below the line chart. This bar allows the user to zoom into the data to show a closer 
-				look of the data. By clicking a set space on the brush bar, it triggers the x-axis parameter of the line chart to be updated to a 
-				ratio of the same selected section of the brush bar.</p>
+			<p> In the bar chart presentation, to help user partition the dataset and narrow down to the specific group of users,
+				These parameters are triggered to be updated as mouseover tooltips as well as the dropdown selection for free and paid Apps.
+				This can provide the user with a snapshot of the amount of installations for a given group. Meanwhile, the sort bar will help the
+			    user to view all the bars in a sequence if they need to.</p>
 		</div>
 	</div>
-	<div class="section" id="survey">
+	<div class="section" id="dataset">
 		<div id="content_div">
-			<h1>The Yelp Dataset</h1>
-			<p>​​The restaurant business is an enormous industry where understanding your clients and their behavioural patterns may give prospective 
-				new restaurant owners a much needed head start. This interactive slideshow dives into the publicly available Yelp Academic Dataset 
-				which includes a large set of reviews client interactions across multiple industries and regions. We will focus on restaurants within 
-				the United States in order to better understand client interactions.</p><br />
-			<p>Assumptions are made in the positive correlation between the number of reviews and the popularity of a business. This is then tied with 
-				the assumption of the positive correlation between number of check-ins and the popularity of a business. By focusing on restaurants 
-				which have large number of reviews, check-ins and high star rating, we will be able to understand the type of restaurant to invest 
-				into.</p>
+			<h1>The Dataset Information</h1>
+			<p>​​The dataset was provided by researches regarding Google Analytics performed on 2019. The dataset gathered a list of applications published to
+			Google Play Store in a wide range of categories. Fields include their ratings, names, the size of the Apk packages and others. The following
+			analysis will use those attributes to group data and display charts</p><br />
+
+			<p>Assumptions are made in the positive correlation between the number of installs and the popularity of a application. This is then tied with
+				the assumption of the positive correlation between number of downloads and the popularity of a business. By focusing on application published in
+				Google store which have large number of installs, and high score rating, we will be able to understand what kinds of applications are trending
+				in Android world.</p>
 		</div>
 	</div>
 	<div class="section" id="background_bw">
-		<div id="bubble_title"><h1>Overview of All Reviewed Restaurants</h1></div>
+		<div id="bubble_title"><h1>High-Level Overview for All Apps in Dataset</h1></div>
 		<div id="bubble_content">
-			<div id="bubble_text">
-				<p>​We are able to see that the bulk of the reviews are from NV with a star rating between 2-4.</p>
-			</div>
 			<div id="bubble_container">
 				<div id="toolbar">
 					<a href="#" id="all" class="button active">All Reviews</a>
-					<a href="#" id="state" class="button">Reviews By State</a>
+					<a href="#" id="state" class="button">Review per Content Rating</a>
 					<a href="#" id="stars" class="button">Reviews By Average Star Ratings</a>
 				</div>
 				<div id="vis"></div>
 			</div>
 		</div>
-	</div>	
-	<div class="section" id="background_bw">
-		<div id="zsb_title"><h1>Top 25 Most Reviewed Restaurants</h1></div>
-		<div id="zsb_content">
-			<div id="zsb_text">
-				<p>​When the categories are consolidated into the Top 24 + Others, we can see that American New is the most reviewed restaurant 
-					category. The spread between states do not seem to affect the ranking of restaurant categories either.</p>
-			</div>
-			<div id="zsb_container">
-				<div id="zoomable_sunburst"></div>
-			</div>
-		</div>
-	</div>	
-	<div class="section" id="background_bw">
-		<div id="linechart_title"><h1>Customer Checkins per Hour per Category</h1></div>
+	</div>
+	<div class="section" id="line_chart">
+		<div id="linechart_title"><h1>Average Number of Installation Per Content Rating - with Review Distribution</h1></div>
 		<div id="linechart_content">
-			<div id="linechart_text">
-				<p>Aggregating the hourly check-ins per restaurant categories for NV reveals a consistent trend. Regardless of the day of the week, 
-					there is a cyclic relationship between the number of check-ins and the time of the day. The amount of check-ins peaks out near 
-					the end of the day with a general increase over the weekend.</p>
-			</div>
-			<div id="linechart_container">
-				<div id="linechart"></div>
-			</div>
+			<svg id="chart" width="650" height="400" ></svg>
 		</div>
+		Select Type of App:
+		<select id="year"></select>
+		<input type="checkbox" id="sort"> Toggle sort
 	</div>
 	<div class="section" id="analytics">
 		<div id="content_div">
-			<h1>Findings</h1>
-			<p>​The initial analysis based on the Yelp Academic Dataset shows that a prospective restaurant owner should choose to open an 
-				<span id="emphasize">American New</span> styled restaurant. The location should be in <span id="emphasize">NV</span> where 
-				there were the most amount of reviews logged. The restaurant should focus of the <span id="emphasize">evening</span> and 
-				<span id="emphasize">weekend</span> crowds with possibly reducing staffing during the day as the amount of people tapers off.</p>
+			<h1>Overall Finding</h1>
+			<p> The high-level overall view shows that there is a negative correlation between the number of published application verses the
+			level of content restriction. In other words, as the application is available to a wider range of users in different ages, then the restriction
+			is more linient, thus there are more author publishing to the Google Play Store </p>
+			<h2>Customer Rating against Content Rating</h2>
+			<p>As the distribution shows regarding customer rating (sclred from 1 to 5), as the application is more restricted to mature people, the
+			average customer rating tends to be lower. On the contrary side, when the application contains fewer restrited content, the review is less controversial
+			and most people opt to rate 3 or 4 stars</p>
+			<h2>Prices and Number of Installations</h2>
+			<p>As we partition the number of free applications and the number of paid applications, such as the seperation in Google Play Store, we found
+				that there are more applications with age restriction. In particular, most of the free application are welcomed to all age people, while
+				the proportion of age restricted applications takes a greater occupation for paid Apps in terms of number of isntallations</p>
 		</div>
 	</div>	
 	<div class="section" id="acks">
@@ -163,50 +138,38 @@
 			<h1>References and Resources</h1>
 			<h2>Github Project</h2>
 			<ul>
-				<li><a href='https://github.com/stanleykylee/cs498-ddv-final' target='_blank'>CS498 DDV Final Project</a></li>
+				<li><a href='https://github.com/stanleykylee/cs498-ddv-final' target='_blank'>CS498 Final Project</a></li>
 			</ul>
 			<h2>Dataset</h2>
 			<ul>
-				<li><a href='https://www.yelp.com/academic_dataset' target='_blank'>Yelp Academic Dataset Round 9</a></li>
+				<li><a href='https://www.kaggle.com/lava18/google-play-store-apps' target='_blank'>Google Play Data Source</a></li>
 			</ul>
-			<h2>Stock Images</h2>
+			<h2>Images</h2>
 			<ul>
 				<li><a href='https://www.pexels.com/photo/analytics-text-185576/' target='_blank'>Pexels - Analytics</a></li>
-				<li><a href='https://www.pexels.com/photo/store-with-red-and-white-stripe-awnings-492803/' target='_blank'
-					>Pexels - Store with Awnings</a></li>
-				<li><a href='https://www.pexels.com/photo/person-answering-test-paper-159353/' target='_blank'>Pexels - Answering Test Paper</a></li>
-				<li><a href='https://www.pexels.com/photo/tea-coffee-restaurant-smartphone-481021/' target='_blank'>Pexels - Tea Coffee Restaunt</a></li>
-				<li><a href='https://www.pexels.com/photo/wood-texture-background-pine-82256/' target='_blank'>Pexels - Wood Texture Background</a></li>
-				<li><a href='https://www.pexels.com/photo/lunch-vegetables-healthy-meal-8844/' target='_blank'>Pexels - Healthy Meal</a></li>
+				<li><a href='https://www.pexels.com/photo/analysis-blackboard-board-bubble-355952/' target='_blank'
+					>Pexels - BlackBoard</a></li>
+				<li><a href='https://www.pexels.com/photo/wavelength-1093161/' target='_blank'>Test Paper</a></li>
+				<li><a href='https://www.pexels.com/photo/photo-of-pen-on-top-of-notebook-3183170/' target='_blank'>Pexels - NoteBook</a></li>
+				<li><a href='https://www.pexels.com/photo/wood-texture-background-pine-82256/' target='_blank'>Pexels - DarkWood</a></li>
+				<li><a href='https://www.pexels.com/photo/background-board-chart-data-590041/' target='_blank'>Essay Background</a></li>
 			</ul>
-			<h2>Bubble Chart</h2>
+			<h2>Chart</h2>
 			<ul>
-				<li><a href='https://bl.ocks.org/john-guerra/0d81ccfd24578d5d563c55e785b3b40a' target='_blank'>
-					Bubble Chart d3 v4 Github Gist by John Alexis Guerra Gomez</a></li>
-				<li><a href='https://github.com/vlandham/bubble_chart_v4' target='_blank'>Animated Bubble Chart by Jim Vallandingham</a></li>
-				<li><a href='https://github.com/d3/d3-hierarchy/blob/master/README.md#pack' target='_blank'>d3 API documents on d3-hierarchy - packs</a></li>
+				<li><a href='http://vallandingham.me/bubble_chart_v4/' target='_blank'>
+					Bubble Chart d3 v4 Github</a></li>
+				<li><a href='https://gist.github.com/meli-lewis/cded559f101ebd5e1c3af5f5e38403cf' target='_blank'>
+					Barchart Example</a></li>
 			</ul>
-			<h2>Zoomable Sunburst</h2>
-			<ul>
-				<li><a href='https://gist.github.com/mchelen/1481545d38d0304b4d54' target='_blank'>d3.js hierarchical object from csv by Mike Chelen</a></li>
-				<li><a href='https://gist.github.com/mbostock/4348373' target='_blank'>Zoomable Sunburst by Mike Bostock</a></li>
-				<li><a href='https://gist.github.com/denjn5/3b74baf5edc4ac93d5e487136481c601' target='_blank'>
-					Smooth Updates and Sorting by David Richards</a></li>
-			</ul>
-			<h2>Line Chart</h2>
-			<ul>
-				<li><a href='https://gist.github.com/DStruths/9c042e3a6b66048b5bd4' target='_blank'>
-					d3.js Multi-series line chart interactive by DStruths</a></li>
-			</ul>
+
 		</div>
 	</div>
 </div>
 
 <script type="text/javascript" src="js/tooltip.js"></script>
 <script type="text/javascript" src="js/bubble_chart.js"></script>
-<script type="text/javascript" src="js/zoomable_sunburst.js"></script> 
 <script type="text/javascript" src="js/linechart.js"></script>
-<script type="text/javascript" src="js/annotations.js"></script> 
+<script type="text/javascript" src="js/annotations.js"></script>
 
 </body>
 </html>

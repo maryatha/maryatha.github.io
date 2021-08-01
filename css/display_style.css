@@ -1,31 +1,6 @@
-/* Style for our header texts
-* --------------------------------------- */
-h1 {
-	font-size: 4em;
-	font-family: 'Lato';
-	color: #000;
-	margin:0;
-	padding:0;
-}
-p {
-	margin: 0;
-	padding: 0;
-}
 
-/* Centered texts in each section
-* --------------------------------------- */
-/* .section{
-	text-align:center;
-} */
 
-/* Overwriting styles for control arrows for slides
-* --------------------------------------- */
-.controlArrow.prev {
-	left: 50px;
-}
-.controlArrow.next {
-	right: 50px;
-}
+
 
 /* Backgrounds will cover all the section
 * --------------------------------------- */
@@ -41,11 +16,27 @@ p {
 /* Introduction
 * --------------------------------------- */
 #title {
-	background-image: url(../imgs/storefront.jpg);
+	background-image: url(../imgs/googlePlay.jpg);
 }
+
+#title_text h1 {
+    font-size: 6em;
+    font-family: 'Lato', cursive;
+    color: aliceblue;
+    margin:0;
+    padding:0;
+}
+#title_text h3 {
+    font-size: 2em;
+    font-family: 'Lato', cursive;
+    color: aliceblue;
+    margin:0;
+    padding:0;
+}
+
 #title_text {
-	top: 5%;
-	left: 10%;
+	top: 40%;
+    text-align:center;
 	position: relative;
 }
 #title_text h1,h3 {
@@ -55,33 +46,54 @@ p {
 /* About the Visualization
 * --------------------------------------- */
 #about {
-	background-image: url(../imgs/about.jpg);
+	background-image: url(../imgs/essay.jpg);
 	padding: 3% 6% 6% 6%;
 }
 #background_bw {
-	background-image: url(../imgs/background_bw.jpg);
+	background-image: url(../imgs/darkwood.jpg);
 	padding: 3% 0 0 0;
 }
-/* Yelp Data
+
+#line_chart {
+    background-image: url(../imgs/lightcolor.jpg);
+    padding: 3% 0 0 0;
+}
+
+/* Data Source
 * --------------------------------------- */
-#survey{
-	background-image: url(../imgs/survey.jpg);
-	padding: 3% 60% 6% 6%;
+#dataset{
+	background-image: url(../imgs/review.jpg);
+    padding-top: 20%;
+    padding-right: 20%;
+    padding-left: 10%;
+}
+#dataset h1 {
+    font-size: 5em;
+    font-family: 'Lato', cursive;
+    color: black;
+    margin:0;
+    padding:0;
+}
+#dataset p {
+    font-size: 12pt;
+    font-family: 'Lato', cursive;
+    color: black;
+    margin:0;
+    padding:0;
 }
 /* Reviews Overview
 * --------------------------------------- */
 #bubble_title {
-  margin: 30px;
+    color: antiquewhite;
 }
 #bubble_content {
   position: absolute;
-  top: 50%;
+  top: 35%;
   transform: translateY(-55%);
 }
 #bubble_container {
-  width: 1024px;
   height: 520px;
-  margin: 30px; 
+  margin: 30px;
   float: left;
   width: 70%;
 }
@@ -94,53 +106,28 @@ p {
   background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
   background: rgba(255, 255, 255, 0.7);	  
 }
-/* Top 25 Categories
-* --------------------------------------- */
-#zsb_title {
-  margin: 30px;
-}
-#zsb_content {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-55%);
-}
-#zsb_container {
-  width: 1024px;
-  height: 520px;
-  margin: 30px; 
-  float: left;
-  width: 70%;
-}
-#zsb_text {
-  margin: 30px;
-  left: 5%;
-  padding: 10px;
-  float: left;
-  width: 20%;
-  background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
-  background: rgba(255, 255, 255, 0.7);	  
-}
+
 /* NV Check-ins
 * --------------------------------------- */
 #linechart {
-  text-align:center;
+    text-align:center;
+
 }
 #linechart_title {
   margin: 30px;
+    color: black;
 }
 #linechart_content {
-  position: absolute;
-  top: 50%;
+  position: relative;
+  top: 10%;
+    left: 20%;
   transform: translateY(-55%);
 }
 #linechart_container {
-  width: 1024px;
-  height: 520px;
-  margin: 30px; 
-  background-color: #fff;
-  border: 1px solid black;
+  width: 900px;
+  height: 600px;
+  margin: 30px;
   float: left;
-  width: 70%;
 }
 #linechart_text {
   margin: 30px;
@@ -148,19 +135,22 @@ p {
   padding: 10px;
   float: left;
   width: 20%;
+    color: black;
+    font-weight: bold;
+
   background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
   background: rgba(255, 255, 255, 0.7);	  
 }
 /* Findings
 * --------------------------------------- */
 #analytics{
-	background-image: url(../imgs/analytics.jpg);
+	background-image: url(../imgs/analysis.jpg);
 	padding: 3% 60% 6% 6%;
 }
 /* References
 * --------------------------------------- */
 #acks {
-	background-image: url(../imgs/table.jpg);
+	background-image: url(../imgs/ref.jpg);
 	padding: 3% 52% 6% 6%;
 }
 #content_div, #acks_div {

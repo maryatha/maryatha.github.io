@@ -2,59 +2,57 @@
  * instantiate a new bubble chart given a DOM element to display
  * it in and a dataset to visualize.
  *
- * Organization and style inspired by:
- * https://bost.ocks.org/mike/chart/
- *
- * Original script modied from:
+ * Refered to a public tutorial
  * https://github.com/vlandham/bubble_chart_v4/
  */
+// Load the data.
+d3.csv('data/boardgames.csv', display);
+
+// setup the buttons.
+setupButtons();
+
 function bubbleChart() {
   // Constants for sizing
-  var width = 1024;
-  var height = 768;
+  var width = 1500;
+  var height = 1000;
 
   // tooltip for mouseover functionality
-  var tooltip = floatingTooltip('gates_tooltip', 240);
+  var tooltip = floatingTooltip('gates_tooltip', 240, 20);
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
   var stateCenters = {
-    AZ: { x: 3 * width / 16, y: height / 3 },
-    IL: { x: width / 3, y: 2* height / 3 },
-    NC: { x: 3 * width / 8, y: height / 3 },
-    NV: { x: width / 2, y: 2* height / 3 },
-    OH: { x: 5 * width / 8, y: height / 3 },
-    PA: { x: 2 * width / 3, y: 2* height / 3 },
-    WI: { x: 13 * width / 16, y: height / 3 }
+    Teen: { x:3.4 * width / 16, y: height / 2.5 },
+    Everyone: { x: width / 3, y: 2.1 * height / 3.6 },
+    Ten_Plus: { x: 3 * width / 8, y: height / 2.5 },
+    Mature: { x: width / 2, y: 2* height / 3.3 },
+    Eighteen_Plus: { x: 5 * width / 9, y: height / 3 },
+    Unrated: { x: 2.2 * width / 3, y: 2* height / 3.3 }
   }
 
   var starCenters = {
-    1: { x: width / 3, y: 2* height / 3 },
-    2: { x: 3 * width / 8, y: height / 3 },
-    3: { x: width / 2, y: 2* height / 3 },
-    4: { x: 5 * width / 8, y: height / 3 },
-    5: { x: 2 * width / 3, y: 2* height / 3 }
+    1: { x: width / 5, y:  1.2 * height / 3 },
+    2: { x: 6 * width / 8, y: 1.2* height / 3 },
+    3: { x: width / 4, y: 1.8* height / 3 },
+    4: { x: 6 * width / 8, y: 1.8* height / 3 }
   }
 
-  // X locations of the state titles.
   var stateTitle = {
-    AZ: { x: width / 10, y: height / 8 },
-    IL: { x: 9 * width / 40, y: 9 * height / 20 },
-    NC: { x: 7 * width / 20, y: height / 8 },
-    NV: { x: width / 2, y: 9 * height / 20 },
-    OH: { x: 13 * width / 20, y: height / 8 },
-    PA: { x: 31 * width / 40, y: 9 * height / 20 },
-    WI: { x: 9 * width / 10, y: height / 8 }
+    Teen: { x: width / 10, y: height / 12 },
+    Everyone: { x: 14 * width / 40, y: 6.5 * height / 20 },
+    Ten_Plus: { x: 9 * width / 20, y: height / 12 },
+    Mature: { x: 13* width / 20, y: 6.5  * height / 20 },
+    Eighteen_Plus: { x: 13 * width / 20, y: height / 12 },
+    Unrated: { x: 34 * width / 40, y: 6.5 * height / 20 }
   }
 
   var starTitle = {
-    1: { x: width / 5, y: 8 * height / 20 },
-    2: { x: 13 * width / 40, y: height / 9 },
-    3: { x: width / 2, y: 8 * height / 20 },
-    4: { x: 27 * width / 40, y: height / 9 },
-    5: { x: 4 * width / 5, y: 8 * height / 20 }
+    1: { x: width / 8, y: 0.4 * height / 3 },
+    2: { x: 6.5 * width / 8, y: 0.4 * height / 3 },
+    3: { x: width / 8, y: 1 * height / 3 },
+    4: { x: 6.5 * width / 8, y: 1 * height / 3 }
   }
 
   // @v4 strength to apply to the position forces
@@ -101,8 +99,8 @@ function bubbleChart() {
 
   // Nice looking colors - no reason to buck the trend
   // @v4 scales now have a flattened naming scheme
-  var fillColor = d3.scaleOrdinal(d3.schemeCategory20c)
-    .domain(['AZ', 'IL', 'NC', 'NV', 'OH', 'PA', 'WI']);
+  var fillColor = d3.scaleOrdinal(d3.schemeCategory20)
+    .domain(['Eighteen_Plus', 'Everyone', 'Ten_Plus', 'Mature', 'Teen', 'Unrated']);
 
   /*
    * This data manipulation function takes the raw data from
@@ -119,13 +117,13 @@ function bubbleChart() {
   function createNodes(rawData) {
     // Use the max reviews in the data as the max in the scale's domain
     // note we have to ensure the reviews is a number.
-    var maxAmount = d3.max(rawData, function (d) { return +d.reviews; });
+    var maxAmount = d3.max(rawData, function (d) { return +d.Reviews; });
 
     // Sizes bubbles based on area.
     // @v4: new flattened scale names.
     var radiusScale = d3.scalePow()
       .exponent(0.5)
-      .range([2, 35])
+      .range([2, 40])
       .domain([0, maxAmount]);
 
     // Use map() to convert raw data into node data.
@@ -134,20 +132,21 @@ function bubbleChart() {
     var myNodes = rawData.map(function (d) {
       return {
         id: d.id,
-        radius: radiusScale(+d.reviews),
-        reviews: +d.reviews,
-        price: +d.price,
-        stars: +d.stars,
-        name: d.yelp_category,
-        state: d.state,
+        radius: radiusScale(+d.Reviews),
+        Reviews: +d.Reviews,
+        Size: +d.Size,
+        Rating: +d.Rating,
+        App: d.App,
+        Content_Rating: d.Content_Rating,
+        Category: d.Category,
         x: Math.random() * 900,
         y: Math.random() * 800
       };
     });
 
     // sort them to prevent occlusion of smaller nodes.
-    myNodes.sort(function (a, b) { return b.reviews - a.reviews; });
-    
+    myNodes.sort(function (a, b) { return b.Reviews - a.Reviews; });
+
     return myNodes;
   }
 
@@ -188,8 +187,8 @@ function bubbleChart() {
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
       .attr('r', 0)
-      .attr('fill', function (d) { return fillColor(d.state); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.state)).darker(); })
+      .attr('fill', function (d) { return fillColor(d.Content_Rating); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.Content_Rating)).darker(); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
@@ -229,20 +228,28 @@ function bubbleChart() {
    * x force.
    */
   function nodeStatePosX(d) {
-    return stateCenters[d.state].x;
+
+    // console.log(d.Content_Rating + "is logged")
+    try {
+      return stateCenters[d.Content_Rating].x;
+    } catch (err){
+      console.log(stateCenters)
+      console.log(d.Content_Rating + " is Content")
+      console.log(d.App + "is logged")
+    }
   }
 
   function nodeStatePosY(d) {
-    return stateCenters[d.state].y;
-  }  
+    return stateCenters[d.Content_Rating].y;
+  }
 
   function nodeStarPosX(d) {
-    return starCenters[Math.floor(d.stars)].x;
+    return starCenters[Math.floor(d.Rating)].x;
   }
 
   function nodeStarPosY(d) {
-    return starCenters[Math.floor(d.stars)].y;
-  }  
+    return starCenters[Math.floor(d.Rating)].y;
+  }
 
   /*
    * Sets visualization in "single group mode".
@@ -251,11 +258,11 @@ function bubbleChart() {
    * center of the visualization.
    */
   function groupBubbles() {
-    hideTitles('.state');
-    hideTitles('.stars');
+    hideTitles('.Content_Rating');
+    hideTitles('.Rating');
 
     d3.selectAll("#bubble_state_annotation").remove()
-    d3.selectAll("#bubble_star_annotation").remove()    
+    d3.selectAll("#bubble_star_annotation").remove()
 
     // @v4 Reset the 'x' and 'y' force to draw the bubbles to the center.
     simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
@@ -272,15 +279,15 @@ function bubbleChart() {
    * yearCenter of their data's year.
    */
   function splitStateBubbles() {
-    hideTitles('.stars');
-    showTitles(stateTitle, 'state');
+    hideTitles('.Rating');
+    showTitles(stateTitle, 'Content_Rating');
 
     d3.selectAll("#bubble_state_annotation").remove()
     d3.selectAll("#bubble_star_annotation").remove()
     d3.select("#bubble_svg").append("g")
       .attr("class", "annotation-group")
       .attr("id", "bubble_state_annotation")
-      .call(bubble_state_makeAnnotations)      
+      .call(bubble_state_makeAnnotations)
 
     // @v4 Reset the 'x' force to draw the bubbles to their year centers
     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeStatePosX));
@@ -291,16 +298,16 @@ function bubbleChart() {
   }
 
   function splitStarBubbles() {
-    hideTitles('.state');
-    showTitles(starTitle, 'stars');
+    hideTitles('.Content_Rating');
+    showTitles(starTitle, 'Rating');
 
     d3.selectAll("#bubble_state_annotation").remove()
     d3.selectAll("#bubble_star_annotation").remove()
     d3.select("#bubble_svg").append("g")
       .attr("class", "annotation-group")
       .attr("id", "bubble_star_annotation")
-      .call(bubble_star_makeAnnotations)    
-    
+      .call(bubble_star_makeAnnotations)
+
     // @v4 Reset the 'x' force to draw the bubbles to their year centers
     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeStarPosX));
     simulation.force('y', d3.forceY().strength(forceStrength).y(nodeStarPosY));
@@ -320,8 +327,6 @@ function bubbleChart() {
    * Shows Year title displays.
    */
   function showTitles(title, titleClass) {
-    // Another way to do this would be to create
-    // the year texts once and then just hide them.
     var titleData = d3.keys(title);
     var titles = bubble_svg.selectAll('.'+titleClass)
       .data(titleData);
@@ -331,7 +336,7 @@ function bubbleChart() {
       .attr('x', function (d) { return title[d].x; })
       .attr('y', function (d) { return title[d].y; })
       .attr('text-anchor', 'middle')
-      .text(function (d) { 
+      .text(function (d) {
         if (d == 1) {
           return '⭐';
         } else if (d == 2) {
@@ -343,7 +348,7 @@ function bubbleChart() {
         } else if (d == 5) {
           return '⭐⭐⭐⭐⭐';
         } else {
-          return d; 
+          return d;
         }
       });
   }
@@ -356,17 +361,20 @@ function bubbleChart() {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
-    var content = '<span class="name">Restaurant Category: </span><span class="value">' +
-                  d.name +
+    var content = '<span class="name">Application Name: </span><span class="value">' +
+        d.App +
+        '</span><br/>' +
+        '<span class="name">Application Category: </span><span class="value">' +
+                  d.Category +
                   '</span><br/>' +
-                  '<span class="name">State: </span><span class="value">' +
-                  d.state +
+                  '<span class="name">Content Rating: </span><span class="value">' +
+                  d.Content_Rating +
                   '</span><br/>' +
-                  '<span class="name">Reviews: </span><span class="value">' +
-                  addCommas(d.reviews) +
+                  '<span class="name">Number of Reviews: </span><span class="value">' +
+                  addCommas(d.Reviews) +
                   '</span><br/>' +
-                  '<span class="name">Average Stars: </span><span class="value">' +
-                  d.stars +
+                  '<span class="name">Rating Score: </span><span class="value">' +
+                  d.Rating +
                   '</span>';
 
     tooltip.showTooltip(content, d3.event);
@@ -378,7 +386,7 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.state)).darker());
+      .attr('stroke', d3.rgb(fillColor(d.Content_Rating)).darker());
 
     tooltip.hideTooltip();
   }
@@ -410,7 +418,7 @@ function bubbleChart() {
  * to create a new bubble chart instance, load the data, and display it.
  */
 
-var myBubbleChart = bubbleChart();
+const myBubbleChart = bubbleChart();
 
 /*
  * Function called once data is loaded from CSV.
@@ -465,8 +473,4 @@ function addCommas(nStr) {
   return x1 + x2;
 }
 
-// Load the data.
-d3.csv('data/bubble_chart.csv', display);
 
-// setup the buttons.
-setupButtons();
