@@ -371,6 +371,8 @@ function bubbleChart() {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
+    console.log(d);
+
     var content = '<span class="name">Boardgame: </span><span class="value">' +
         d.App +
         '</span><br/>' +
