@@ -34,11 +34,11 @@ function bubbleChart() {
 
     */
     Family: { x: width / 5, y:  1.2 * height / 3},
-    Thematic: { x: 14 * width / 40, y: 6.5 * height / 20 },
+    Strategy: { x: 14 * width / 40, y: 6.5 * height / 20 },
     Abstract: {x: 9 * width / 20, y: height / 3 },
     Party: { x: 9 * width / 20, y: height / 3 },
     Uncategorized: { x: 9 * width / 20, y: height / 3 },
-    Strategy: { x: 13 * width / 16, y: height / 3 }
+    Thematic: { x: 13 * width / 16, y: height / 3 }
 
     
   }
