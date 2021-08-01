@@ -374,7 +374,9 @@ function bubbleChart() {
     var content = '<span class="name">Boardgame: </span><span class="value">' +
         d.App +
         '</span><br/>' +
-        
+        '<span class="name">Category: </span><span class="value">' +
+                  d.Content_Rating
+                  '</span>'
         
                   +
                   '</span><br/>' +
@@ -387,9 +389,7 @@ function bubbleChart() {
                   
                   d.Category +
                   '</span><br/>' +
-                  '<span class="name">Category: </span><span class="value">' +
-                  d.Content_Rating
-                  '</span>';
+                  ;
 
     tooltip.showTooltip(content, d3.event);
   }
