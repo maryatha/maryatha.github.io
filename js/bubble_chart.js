@@ -315,6 +315,25 @@ function bubbleChart() {
     simulation.alpha(1).restart();
   }
 
+  function quartileBubbles() {
+    hideTitles('.Content_Rating');
+    showTitles(starTitle, 'Rating');
+
+    d3.selectAll("#bubble_state_annotation").remove()
+    d3.selectAll("#bubble_star_annotation").remove()
+    d3.select("#bubble_svg").append("g")
+      .attr("class", "annotation-group")
+      .attr("id", "bubble_star_annotation")
+      .call(bubble_star_makeAnnotations)
+
+    // @v4 Reset the 'x' force to draw the bubbles to their year centers
+    simulation.force('x', d3.forceX().strength(forceStrength).x(nodeStarPosX));
+    simulation.force('y', d3.forceY().strength(forceStrength).y(nodeStarPosY));
+
+    // @v4 We can reset the alpha value and restart the simulation
+    simulation.alpha(1).restart();
+  }
+
   /*
    * Hides Year title displays.
    */
@@ -406,6 +425,8 @@ function bubbleChart() {
   chart.toggleDisplay = function (displayName) {
     if (displayName === 'state') {
       splitStateBubbles();
+    } else if (displayName === 'quartile') {
+      quartileBubbles();
     } else if (displayName === 'stars') {
       splitStarBubbles();
     }else {
