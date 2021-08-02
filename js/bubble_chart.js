@@ -362,8 +362,8 @@ function bubbleChart() {
       .call(bubble_quartile_makeAnnotations);
 
     // @v4 Reset the 'x' force to draw the bubbles to their year centers
-    simulation.force('x', d3.forceX().strength(forceStrength).x(nodeStarPosX));
-    simulation.force('y', d3.forceY().strength(forceStrength).y(nodeStarPosY));
+    simulation.force('x', d3.forceX().strength(forceStrength).x(nodeQuartilePosX));
+    simulation.force('y', d3.forceY().strength(forceStrength).y(nodeQuartilePosY));
 
     // @v4 We can reset the alpha value and restart the simulation
     simulation.alpha(1).restart();
