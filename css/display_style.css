@@ -93,7 +93,7 @@
 #bubble_title {
     color: antiquewhite;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-    margin: 0;
+    margin: 50px 0 0 0;
     padding: 0;
 }
 #bubble_content {
@@ -126,6 +126,9 @@
 #linechart_title {
   margin: 30px;
     color: black;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    margin: 50px 0 0 0;
+    padding: 0;
 }
 #linechart_content {
   position: relative;
