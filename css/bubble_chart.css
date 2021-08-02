@@ -50,6 +50,13 @@
   cursor: default;
 }
 
+.Quartile {
+  font-size: 22px;
+  fill: aliceblue;
+    font-weight:bold;
+  cursor: default;
+}
+
 .tooltip {
 	position: absolute;
 	top: 100px;
