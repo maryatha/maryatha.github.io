@@ -24,14 +24,18 @@ function bubbleChart() {
   var center = { x: width / 2, y: height / 2 };
 
   var stateCenters = {
-
     Family: { x: width / 5, y:  1.2 * height / 3},
     Strategy: { x: 14 * width / 40, y: 6.5 * height / 20 },
     Party: { x: 12 * width / 20, y: height / 3.5 },
     Thematic: { x: 9 * width / 20, y: height / 3 },
     Uncategorized: { x: 13 * width / 16, y: height / 3 }
+  }
 
-    
+  var quartileCenters = {
+    Q1: { x: width / 4, y:  1.2 * height / 3},
+    Q2: { x: 14 * width / 40, y: 6.5 * height / 20 },
+    Q3: { x: 12 * width / 20, y: height / 3.5 },
+    Q4: { x: 9 * width / 20, y: height / 3 }
   }
 
   var starCenters = {
@@ -45,6 +49,13 @@ function bubbleChart() {
     Thematic: { x: width * 0.6, y: 6.5 * height / 8 },
     Party: { x: width *.75, y: 6.5 * height / 8 },
     Uncategorized: { x: width * 0.92, y: 6.5 * height / 8 }
+  }
+
+  var quartileTitle = {
+    Q1: { x: width *0.1, y: 6.5 * height / 8},
+    Q2: { x: 14 * width / 40, y: 6.5 * height / 8 },
+    Q3: { x: width * 0.6, y: 6.5 * height / 8 },
+    Q4: { x: width *.75, y: 6.5 * height / 8 }
   }
 
   var starTitle = {
@@ -136,6 +147,7 @@ function bubbleChart() {
         Boardgame: d.Boardgame,
         Time: d.Time,
         Description: d.Description,
+        Quartile: d.Quartile,
         Content_Rating: d.Content_Rating,
         Category: d.Category,
         x: Math.random() * 900,
@@ -242,6 +254,14 @@ function bubbleChart() {
     return stateCenters[d.Content_Rating].y;
   }
 
+  function nodeQuartilePosX(d) {
+    return quartileCenters[Math.floor(d.id)].x;
+  }
+
+  function nodeQuartilePosY(d) {
+    return quartileCenters[Math.floor(d.id)].y;
+  }
+
   function nodeStarPosX(d) {
     return starCenters[Math.floor(d.Rating)].x;
   }
@@ -256,12 +276,15 @@ function bubbleChart() {
    * tick function is set to move all nodes to the
    * center of the visualization.
    */
+  //TODO
   function groupBubbles() {
     hideTitles('.Content_Rating');
     hideTitles('.Rating');
+    hideTitles('.QuartileTitle');
 
-    d3.selectAll("#bubble_state_annotation").remove()
-    d3.selectAll("#bubble_star_annotation").remove()
+    d3.selectAll("#bubble_state_annotation").remove();
+    d3.selectAll("#bubble_star_annotation").remove();
+    d3.selectAll('#bubble_quartile_annotation').remove();
 
     // @v4 Reset the 'x' and 'y' force to draw the bubbles to the center.
     simulation.force('x', d3.forceX().strength(forceStrength).x(center.x));
@@ -279,14 +302,17 @@ function bubbleChart() {
    */
   function splitStateBubbles() {
     hideTitles('.Rating');
+    hideTitles('.QuartileTitle');
     showTitles(stateTitle, 'Content_Rating');
 
-    d3.selectAll("#bubble_state_annotation").remove()
-    d3.selectAll("#bubble_star_annotation").remove()
+    d3.selectAll("#bubble_state_annotation").remove();
+    d3.selectAll("#bubble_star_annotation").remove();
+    d3.selectAll("#bubble_quartile_annotation").remove();
+
     d3.select("#bubble_svg").append("g")
       .attr("class", "annotation-group")
       .attr("id", "bubble_state_annotation")
-      .call(bubble_state_makeAnnotations)
+      .call(bubble_state_makeAnnotations);
 
     // @v4 Reset the 'x' force to draw the bubbles to their year centers
     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeStatePosX));
@@ -298,10 +324,13 @@ function bubbleChart() {
 
   function splitStarBubbles() {
     hideTitles('.Content_Rating');
-    showTitles(starTitle, 'Rating');
+    hideTitles('.QuartileTitle');
+    showTitles(quartileTitle, 'QuartileTitle');
 
-    d3.selectAll("#bubble_state_annotation").remove()
-    d3.selectAll("#bubble_star_annotation").remove()
+    d3.selectAll("#bubble_state_annotation").remove();
+    d3.selectAll("#bubble_star_annotation").remove();
+    d3.selectAll("#bubble_quartile_annotation").remove();
+
     d3.select("#bubble_svg").append("g")
       .attr("class", "annotation-group")
       .attr("id", "bubble_star_annotation")
@@ -317,14 +346,17 @@ function bubbleChart() {
 
   function quartileBubbles() {
     hideTitles('.Content_Rating');
-    showTitles(starTitle, 'Rating');
+    hideTitles('.Rating');
+    showTitles(quartileTitle, 'Quartile');
 
-    d3.selectAll("#bubble_state_annotation").remove()
-    d3.selectAll("#bubble_star_annotation").remove()
+    d3.selectAll("#bubble_state_annotation").remove();
+    d3.selectAll("#bubble_star_annotation").remove();
+    d3.selectAll("#bubble_quartile_annotation").remove();
+
     d3.select("#bubble_svg").append("g")
       .attr("class", "annotation-group")
-      .attr("id", "bubble_star_annotation")
-      .call(bubble_star_makeAnnotations)
+      .attr("id", "bubble_quartile_annotation")
+      .call(bubble_quartile_makeAnnotations);
 
     // @v4 Reset the 'x' force to draw the bubbles to their year centers
     simulation.force('x', d3.forceX().strength(forceStrength).x(nodeStarPosX));

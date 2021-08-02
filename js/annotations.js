@@ -11,7 +11,7 @@ const bubble_state_annotations = [
     y: 550,
     dy: -160,
     dx: -120
-}]
+}];
 
 const bubble_state_makeAnnotations = d3.annotation()
     .type(d3.annotationLabel)
@@ -29,21 +29,39 @@ const bubble_star_annotations = [
     y: 200,
     dy: 0,
     dx: 0
-}]
+}];
+
+const bubble_quartile_annotations = [
+{
+    type: d3.annotationLabel,
+    note: {
+    title: "quartile test",
+    label: "Only 80 of the 500 games received 4 star reviews. 73% of the 4 star games are strategy games.",
+    wrap: 190
+    },
+    x: 800,
+    y: 200,
+    dy: 0,
+    dx: 0
+}];
+
+const bubble_quartile_makeAnnotations = d3.annotation()
+    .type(d3.annotationLabel)
+    .annotations(bubble_quartile_annotations);
 
 const bubble_star_makeAnnotations = d3.annotation()
     .type(d3.annotationLabel)
-    .annotations(bubble_star_annotations)
+    .annotations(bubble_star_annotations);
 
 
 const zoom_makeAnnotations = d3.annotation()
     .type(d3.annotationLabel)
-    .annotations(zoom_annotations)
+    .annotations(zoom_annotations);
 
 d3.select("#zoomable_svg")
     .append("g")
     .attr("class", "annotation-group")
     .attr("id", "zoom_annotation")
-    .call(zoom_makeAnnotations)
+    .call(zoom_makeAnnotations);
 
 // // Annotations for Line Chart
