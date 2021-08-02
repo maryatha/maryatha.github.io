@@ -54,8 +54,8 @@ function bubbleChart() {
   var quartileTitle = {
     Q1: { x: width *0.1, y: 6.5 * height / 8},
     Q2: { x: 14 * width / 40, y: 6.5 * height / 8 },
-    Q3: { x: width * 0.6, y: 6.5 * height / 8 },
-    Q4: { x: width *.75, y: 6.5 * height / 8 }
+    Q4: { x: width * 0.6, y: 6.5 * height / 8 },
+    Q3: { x: width *.75, y: 6.5 * height / 8 }
   }
 
   var starTitle = {
