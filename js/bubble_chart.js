@@ -255,6 +255,7 @@ function bubbleChart() {
   }
 
   function nodeQuartilePosX(d) {
+    console.log(quartileCenters[Math.floor(d.Quartile)].x);
     return quartileCenters[Math.floor(d.Quartile)].x;
   }
 
