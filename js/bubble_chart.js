@@ -34,8 +34,8 @@ function bubbleChart() {
   var quartileCenters = {
     Q1: { x: width / 4, y:  1.2 * height / 3},
     Q2: { x: 14 * width / 40, y: 6.5 * height / 20 },
-    Q3: { x: 12 * width / 20, y: height / 3.5 },
-    Q4: { x: 9 * width / 20, y: height / 3 }
+    Q4: { x: 12 * width / 20, y: height / 3.5 },
+    Q3: { x: 9 * width / 20, y: height / 3 }
   }
 
   var starCenters = {
