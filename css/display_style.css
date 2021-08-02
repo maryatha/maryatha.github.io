@@ -92,6 +92,8 @@
 * --------------------------------------- */
 #bubble_title {
     color: antiquewhite;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
 }
 #bubble_content {
   position: absolute;
