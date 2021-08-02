@@ -346,15 +346,15 @@ function bubbleChart() {
       .attr('text-anchor', 'middle')
       .text(function (d) {
         if (d == 1) {
-          return '⭐';
+         // return '⭐';
         } else if (d == 2) {
-          return '⭐⭐';
+        //  return '⭐⭐';
         } else if (d == 3) {
           return '⭐⭐⭐';
         } else if (d == 4) {
           return '⭐⭐⭐⭐';
         } else if (d == 5) {
-          return '⭐⭐⭐⭐⭐';
+         // return '⭐⭐⭐⭐⭐';
         } else {
           return d;
         }
