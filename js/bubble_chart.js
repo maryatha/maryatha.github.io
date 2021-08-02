@@ -280,7 +280,7 @@ function bubbleChart() {
   function groupBubbles() {
     hideTitles('.Content_Rating');
     hideTitles('.Rating');
-    hideTitles('.QuartileTitle');
+    hideTitles('.Quartile');
 
     d3.selectAll("#bubble_state_annotation").remove();
     d3.selectAll("#bubble_star_annotation").remove();
@@ -302,7 +302,8 @@ function bubbleChart() {
    */
   function splitStateBubbles() {
     hideTitles('.Rating');
-    hideTitles('.QuartileTitle');
+    hideTitles('.Quartile');
+
     showTitles(stateTitle, 'Content_Rating');
 
     d3.selectAll("#bubble_state_annotation").remove();
@@ -324,8 +325,9 @@ function bubbleChart() {
 
   function splitStarBubbles() {
     hideTitles('.Content_Rating');
-    hideTitles('.QuartileTitle');
-    showTitles(starTitle, 'starTitle');
+    hideTitles('.Quartile');
+
+    showTitles(starTitle, 'Rating');
 
     d3.selectAll("#bubble_state_annotation").remove();
     d3.selectAll("#bubble_star_annotation").remove();
@@ -347,6 +349,7 @@ function bubbleChart() {
   function quartileBubbles() {
     hideTitles('.Content_Rating');
     hideTitles('.Rating');
+
     showTitles(quartileTitle, 'Quartile');
 
     d3.selectAll("#bubble_state_annotation").remove();
