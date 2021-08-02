@@ -62,7 +62,7 @@
 }
 
 #line_chart {
-    background-image: url(../imgs/lightcolor.jpg);
+    background-image: url(../data/imgs/bg_pattern.png);
     padding: 3% 0 0 0;
 }
 
@@ -125,7 +125,7 @@
 }
 #linechart_title {
   margin: 30px;
-    color: black;
+    color: white;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
     margin: 50px 0 0 0;
     padding: 0;
