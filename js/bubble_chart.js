@@ -43,18 +43,16 @@ function bubbleChart() {
   }
 
   var starCenters = {
-    1: { x: width / 5, y:  1.2 * height / 3 },
     3: { x: width / 4, y: 1.1* height / 3 },
     4: { x: 6 * width / 8, y: 1.3* height / 3 }
   }
 
   var stateTitle = {
-    Teen: { x: width / 10, y: height / 12 },
-    Everyone: { x: 14 * width / 40, y: 6.5 * height / 20 },
-    Ten_Plus: { x: 9 * width / 20, y: height / 12 },
-    Mature: { x: 13* width / 20, y: 6.5  * height / 20 },
-    Eighteen_Plus: { x: 13 * width / 20, y: height / 12 },
-    Unrated: { x: 34 * width / 40, y: 6.5 * height / 20 }
+    Family: { x: width / 5, y:  1.2 * height / 3},
+    Strategy: { x: 14 * width / 40, y: 6.5 * height / 20 },
+    Party: { x: 12 * width / 20, y: height / 3.5 },
+    Thematic: { x: 9 * width / 20, y: height / 3 },
+    Uncategorized: { x: 13 * width / 16, y: height / 3 }
   }
 
   var starTitle = {
