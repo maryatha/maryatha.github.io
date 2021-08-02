@@ -43,8 +43,8 @@ function bubbleChart() {
   }
 
   var starCenters = {
-    3: { x: width / 4, y: 1.1* height / 3 },
-    4: { x: 6 * width / 8, y: 1.3* height / 3 }
+    3: { x: width / 4, y: 1.1* height / 5 },
+    4: { x: 6 * width / 8, y: 1.3* height / 6 }
   }
 
   var stateTitle = {
