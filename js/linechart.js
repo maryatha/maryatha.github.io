@@ -84,7 +84,7 @@ function chart(selector, csv) {
             .on("mouseover", function(d) {
                 d3.select(this).style("fill", "red")
                 console.log(d)
-                tooltip_line.text("Total Installation Number is : " + d[3][1] )
+                tooltip_line.text("Total game purchases: " + d[3][1] )
                     .style("opacity", 0.8)
                     .style("left", (d3.event.pageX) + "px")
                     .style("top", (d3.event.pageY) + "px");
