@@ -25,6 +25,8 @@
     color: aliceblue;
     margin:0;
     padding:0;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
 }
 #title_text h3 {
     font-size: 2em;
@@ -32,16 +34,20 @@
     color: aliceblue;
     margin:0;
     padding:0;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+
 }
 
 #title_text {
 	top: 40%;
     text-align:center;
 	position: relative;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 #title_text h1,h3 {
 	padding: 0;
 	margin: 0;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 /* About the Visualization
 * --------------------------------------- */
