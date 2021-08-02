@@ -35,12 +35,12 @@ const bubble_quartile_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "quartile test",
-    label: "Only 80 of the 500 games received 4 star reviews. 73% of the 4 star games are strategy games.",
+    title: "Highest rated quartile",
+    label: "Of the top 125 games on BoardGameGeek, 74% are strategy games.",
     wrap: 190
     },
     x: 400,
-    y: 600,
+    y: 550,
     dy: 0,
     dx: 0
 }];
