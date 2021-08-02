@@ -134,7 +134,7 @@ function chart(selector, csv) {
         })
 
     var legend = svg.selectAll(".legend")
-        .data(['1~3 Stars Rating', '3~4 Stars Rating', '4~5 Stars Rating'])
+        .data(['Low Rating', 'Medium Rating', 'Highest Rating'])
         .enter().append("g")
         .attr("class", "legend")
         .attr("transform", function(d,i) { return "translate(0," + i * 15 + ")"; })
