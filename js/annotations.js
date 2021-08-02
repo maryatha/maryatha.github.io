@@ -39,8 +39,8 @@ const bubble_quartile_annotations = [
     label: "Only 80 of the 500 games received 4 star reviews. 73% of the 4 star games are strategy games.",
     wrap: 190
     },
-    x: 800,
-    y: 200,
+    x: 400,
+    y: 600,
     dy: 0,
     dx: 0
 }];
