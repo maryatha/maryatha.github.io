@@ -325,7 +325,7 @@ function bubbleChart() {
   function splitStarBubbles() {
     hideTitles('.Content_Rating');
     hideTitles('.QuartileTitle');
-    showTitles(quartileTitle, 'QuartileTitle');
+    showTitles(starTitle, 'starTitle');
 
     d3.selectAll("#bubble_state_annotation").remove();
     d3.selectAll("#bubble_star_annotation").remove();
