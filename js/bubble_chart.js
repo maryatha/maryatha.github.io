@@ -255,12 +255,12 @@ function bubbleChart() {
   }
 
   function nodeQuartilePosX(d) {
-    console.log(quartileCenters[Math.floor(d.Quartile)].x);
-    return quartileCenters[Math.floor(d.Quartile)].x;
+    console.log(quartileCenters[d.Quartile].x);
+    return quartileCenters[d.Quartile].x;
   }
 
   function nodeQuartilePosY(d) {
-    return quartileCenters[Math.floor(d.Quartile)].y;
+    return quartileCenters[d.Quartile].y;
   }
 
   function nodeStarPosX(d) {
@@ -414,8 +414,6 @@ function bubbleChart() {
   function showDetail(d) {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
-
-    console.log(d);
 
     var content = '<span class="name">Boardgame: </span><span class="value">' +
         d.Boardgame +
