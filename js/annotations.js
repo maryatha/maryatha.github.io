@@ -22,7 +22,7 @@ const bubble_star_annotations = [
     type: d3.annotationLabel,
     note: {
     title: "Most Top Rated Games are Rated 3 Stars",
-    label: "Despite being in the top 500 ranked games, most games only receive 3 star reviews.",
+    label: "Only 80 of the 500 games received 4 star reviews. 73% of the 4 star games are strategy games.",
     wrap: 190
     },
     x: 800,
