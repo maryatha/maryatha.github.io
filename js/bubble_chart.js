@@ -48,11 +48,11 @@ function bubbleChart() {
   }
 
   var stateTitle = {
-    Family: { x: width / 5, y:  1.2 * height / 6},
+    Family: { x: width / 5, y: 6.5 * height / 8},
     Strategy: { x: 14 * width / 40, y: 6.5 * height / 8 },
-    Party: { x: 12 * width / 20, y: height / 2 },
-    Thematic: { x: 9 * width / 20, y: height / 1 },
-    Uncategorized: { x: 13 * width / 16, y: height / 3 }
+    Party: { x: 12 * width / 20, y: 6.5 * height / 8 },
+    Thematic: { x: 9 * width / 20, y: 6.5 * height / 8 },
+    Uncategorized: { x: 13 * width / 16, y: 6.5 * height / 8 }
   }
 
   var starTitle = {
