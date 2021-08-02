@@ -430,7 +430,10 @@ function bubbleChart() {
                   '</span><br/>' +
                   '<span class="name">Description: </span><span class="value">' +
                   d.Description +
-                  '</span><br/>'
+                  '</span><br/>' + 
+                  '<span class="name">Quartile: </span><span class="value">' +
+                  d.Quartile + 
+                  '</span><br/>' + 
                   '</span>';
 
     tooltip.showTooltip(content, d3.event);
