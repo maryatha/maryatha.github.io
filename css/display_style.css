@@ -57,7 +57,7 @@
 	padding: 3% 6% 6% 6%;
 }
 #background_bw {
-	background-image: url(../data/imgs/bg_pattern.png);
+	background-image: url(../data/imgs/darkwood2.jpg);
 	padding: 3% 0 0 0;
 }
 
@@ -93,7 +93,8 @@
 #bubble_title {
     color: antiquewhite;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-
+    margin: 0;
+    padding: 0;
 }
 #bubble_content {
   position: absolute;
