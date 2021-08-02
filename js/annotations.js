@@ -3,8 +3,8 @@ const bubble_state_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "Major Group of Content Rating",
-    label: "Most of the analyzed Apps are applicable to everyone(all ages)",
+    title: "Strategy games are the most popular category of highest rank games",
+    label: "Strategy games make up 59% of the top rated boardgames",
     wrap: 190
     },
     x: 500,
@@ -21,11 +21,11 @@ const bubble_star_annotations = [
 {
     type: d3.annotationLabel,
     note: {
-    title: "Majority 3-4 Stars",
-    label: "Most of the reviews have ratings at 3 or 4",
+    title: "Most Top Rated Games are Rated 3 Stars",
+    label: "Despite being in the top 500 ranked games, most games only receive 3 star reviews.",
     wrap: 190
     },
-    x: 500,
+    x: 800,
     y: 200,
     dy: 0,
     dx: 0
