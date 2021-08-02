@@ -30,12 +30,12 @@
 		$(document).ready(function() {
 			$('#fullpage').fullpage({
 				verticalCentered: false,
-				anchors: ['title', 'essay', 'bubbleData', 'line_chart', 'findings', 'refs'],
+				anchors: ['title', 'intro', 'structure', 'dataset', 'bubble', 'bar',  'findings', 'ref'],
 				navigation: true,
 				navigationPosition: 'right',
-				navigationTooltips: ['Title', 'Essay', 'Bubble Data', 'Game Purchase Data', 'Findings', 'References']
-			});
-		});
+				navigationTooltips: ['Title', 'Introduction', 'Purpose', 'Data Source', 'High-Level Overview', 'Stacked Bar Chart',
+					'Results', 'Ref']
+			});});
 	</script>
 
 </head>
@@ -50,7 +50,7 @@
 			Mary Athappilly (maryfa2)</h3>
 		</div>
 	</div>
-	<div class="section" id="essay">
+	<div class="section" id="about">
 		<div id="content_div">
 			<h1>Visualization Principles</h1>
 			<p>This visualization uses martini glass structure which takes the user through the Dataset of the Google Review Analysis in the year of 2019
@@ -85,7 +85,20 @@
 			    user to view all the bars in a sequence if they need to.</p>
 		</div>
 	</div>
-	<div class="section" id="bubbleData">
+	<div class="section" id="dataset">
+		<div id="content_div">
+			<h1>The Dataset Information</h1>
+			<p>​​The dataset was provided by researches regarding Google Analytics performed on 2019. The dataset gathered a list of applications published to
+			Google Play Store in a wide range of categories. Fields include their ratings, names, the size of the Apk packages and others. The following
+			analysis will use those attributes to group data and display charts</p><br />
+
+			<p>Assumptions are made in the positive correlation between the number of installs and the popularity of a application. This is then tied with
+				the assumption of the positive correlation between number of downloads and the popularity of a business. By focusing on application published in
+				Google store which have large number of installs, and high score rating, we will be able to understand what kinds of applications are trending
+				in Android world.</p>
+		</div>
+	</div>
+	<div class="section" id="background_bw">
 		<div id="bubble_title"><h1>High-Level Overview for All Apps in Dataset</h1></div>
 		<div id="bubble_content">
 			<div id="bubble_container">
@@ -110,7 +123,7 @@
 		</div>
 		
 	</div>
-	<div class="section" id="findings">
+	<div class="section" id="analytics">
 		<div id="content_div">
 			<h1>Overall Finding</h1>
 			<p> The high-level overall view shows that there is a negative correlation between the number of published application verses the
@@ -126,7 +139,7 @@
 				the proportion of age restricted applications takes a greater occupation for paid Apps in terms of number of isntallations</p>
 		</div>
 	</div>	
-	<div class="section" id="refs">
+	<div class="section" id="acks">
 		<div id="acks_div">
 			<h1>References and Resources</h1>
 			<h2>Github Project</h2>
