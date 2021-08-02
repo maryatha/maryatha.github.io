@@ -255,11 +255,11 @@ function bubbleChart() {
   }
 
   function nodeQuartilePosX(d) {
-    return quartileCenters[Math.floor(d.id)].x;
+    return quartileCenters[Math.floor(d.Quartile)].x;
   }
 
   function nodeQuartilePosY(d) {
-    return quartileCenters[Math.floor(d.id)].y;
+    return quartileCenters[Math.floor(d.Quartile)].y;
   }
 
   function nodeStarPosX(d) {
